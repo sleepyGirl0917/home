@@ -176,24 +176,34 @@ header{
 }
 
 header{
-  color:floralwhite;
   font-size:3rem;
   font-family: serif;
   line-height: 1.8;
-}
-
-header>div{
-  width: 100%;
-  min-width: 50rem;
+  color:floralwhite;
   padding:0 2rem;
-  justify-content: space-around;
+  white-space: nowrap;
+  min-width: 70rem;
 }
 
-header>div>ul{
+header>ul,header>h1{
+  height: 100%;
+}
+
+header>h1{
+  display: inline-block;
+  vertical-align: middle;
+  width:60%;
+}
+
+header>ul{
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
 }
 
-header>div>ul>li{
+header>ul>li{
   padding:0 1rem;
 }
 
@@ -202,7 +212,8 @@ header>div>ul>li{
   display: none;
   position: absolute;
   top:3.5rem;
-  left:0rem;
+  left:50%;
+  transform: translateX(-50%);
   z-index:40;
 }
 
