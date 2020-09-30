@@ -1,0 +1,248 @@
+*{
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+body {
+  min-width:550px;
+  padding:6rem 0 0;
+  background:url(/img/2027535.jpg) no-repeat fixed center;
+  background-size:cover;
+  overflow: hidden;
+}
+
+ul {
+  margin:0;
+	list-style: none;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+	color:floralwhite;
+	transition: all 0.2s;
+}
+
+a:hover {
+  text-shadow: 0.1rem 0.1rem #cc636383;
+  background-color: rgb(160, 129, 129);
+}
+
+a{
+  display: inline-block;
+  padding:0 0.5rem;
+  border-radius: 5px;
+}
+
+a:visited{
+  color: floralwhite;
+}
+
+button,button:hover,button:focus,button:active{
+  outline: none;
+  border:none;
+}
+
+input,input:hover,input:focus,input:active{
+  outline:none;
+  border:1px solid #fff;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pr{
+  position: relative;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+/* 弹性布局垂直居中 */
+.flex-align-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 弹性布局水平垂直居中 */
+.flex-center {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+}
+
+/* 渐变按钮开始*/
+/* button按钮 button.gradientButton */
+.gradientButton{ 
+  display: inline-block;
+  margin:1rem;
+  padding:1rem 3rem;
+  font-size:1.5rem; 
+  line-height: 2rem;
+  font-family:'Montserrat',Helvetica,Arial,sans-serif;
+  letter-spacing:0.03em;
+  border-radius:2rem; 
+  text-align: center; 
+  vertical-align: middle; 
+  color:#fff;
+  box-shadow: 0 0 2px #666;
+  background: linear-gradient(right,#ada0aa 0%,#6e8097c4 50%,#6b646bbb 100%); 
+  background: -ms-linear-gradient(right,#ada0aa 0%,#6e8097c4 50%,#6b646bbb 100%); 
+  background: -webkit-linear-gradient(right,#ada0aa 0%,#6e8097c4 50%,#6b646bbb 100%); 
+  background: -o-linear-gradient(right,#ada0aa 0%,#6e8097c4 50%,#6b646bbb 100%); 
+  background: -moz-linear-gradient(right,#ada0aa 0%,#6e8097c4 50%,#6b646bbb 100%);
+}
+
+/* a标签按钮 */
+/* <a href='#' class="fancy-button bg-gradient1"><span></span></a> */
+a.fancy-button:hover{
+  background-color: transparent;
+}
+.fancy-button {
+	display:inline-block;
+	margin:1rem;
+	font-family:'Montserrat',Helvetica,Arial,sans-serif;
+  font-size:2rem;
+  line-height: 2;
+  vertical-align: middle;
+	letter-spacing:0.03em;
+	color:#ffffff;
+	position:relative;
+}
+.fancy-button span {
+	display:inline-block;
+	padding:1rem 3rem;
+	border-radius:2.5rem;
+	position:relative;
+	will-change:transform,filter;
+	-webkit-transform-style:preserve-3d;
+	transform-style:preserve-3d;
+	-webkit-transition:all 0.3s ease-out;
+	transition:all 0.3s ease-out;
+}
+.fancy-button:hover {
+	color:#a74343;
+}
+.fancy-button:hover span {
+	-webkit-filter:brightness(1.05) contrast(1.05);
+	filter:brightness(1.05) contrast(1.05);
+	-webkit-transform:scale(0.95);
+	transform:scale(0.95);
+}
+.bg-gradient1 span,.bg-gradient1:before {
+	background:#52A0FD;
+	background:-webkit-linear-gradient(left,#52A0FD 0%,#00e2fa 80%,#00e2fa 100%);
+	background:linear-gradient(to right,#52A0FD 0%,#00e2fa 80%,#00e2fa 100%);
+}
+.bg-gradient2 span,.bg-gradient2:before {
+	background:#44ea76;
+	background:-webkit-linear-gradient(left,#44ea76 0%,#39fad7 80%,#39fad7 100%);
+	background:linear-gradient(to right,#44ea76 0%,#39fad7 80%,#39fad7 100%);
+}
+.bg-gradient3 span,.bg-gradient3:before {
+	background:#fa6c9f;
+	background:-webkit-linear-gradient(left,#fa6c9f 0%,#ffe140 80%,#ffe140 100%);
+	background:linear-gradient(to right,#fa6c9f 0%,#ffe140 80%,#ffe140 100%);
+}
+/* 渐变按钮结束 */
+
+/* 头部框架开始 */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:6rem;
+  box-shadow: 0 0.2rem 0.2rem -0.2rem rgba(0,0,0,0.2);
+  background: rgba(216, 189, 189,0.5);
+  z-index:30;
+}
+
+header{
+  color:floralwhite;
+  font-size:3rem;
+  font-family: serif;
+  line-height: 1.8;
+}
+
+header>div{
+  width: 100%;
+  min-width: 50rem;
+  padding:0 2rem;
+  justify-content: space-around;
+}
+
+header>div>ul{
+  font-size: 2rem;
+}
+
+header>div>ul>li{
+  padding:0 1rem;
+}
+
+/* 隐藏列表 */
+.sublist{
+  display: none;
+  position: absolute;
+  top:3.5rem;
+  left:0rem;
+  z-index:40;
+}
+
+.sublist ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sublist ul,.sublist ul li{
+  padding:0;  
+}
+
+.sublist ul li a{
+  font-size: 1.5rem;
+  font-weight: 500;
+  vertical-align: middle;
+  color:floralwhite;
+  white-space: nowrap;
+}
+
+/* 头部框架结束 */
+
+/* 入口页框架开始 */
+.main-container{
+  padding:0 5rem;
+}
+
+.main-container h1.title{
+  font-size:3rem;
+  font-weight: 700;
+  color:floralwhite;
+  text-align: center;
+  margin:5rem 0;
+}
+
+.main-container .wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+/* 入口页框架结束 */

@@ -1,0 +1,12 @@
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  // 控制二级列表的显示/隐藏
+  $('[data-list=sublist]').parent().bind({
+    mouseenter: function () {
+      $(this).find('[data-list=sublist]').css("display", "block");
+    },
+    mouseleave: function () {
+      $(this).find('[data-list=sublist]').css("display", "none");
+    }
+  })
+</script>

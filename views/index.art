@@ -1,0 +1,13 @@
+{{extend './common/layout.art' }}
+
+{{block 'title'}}首页{{/block}}
+
+{{block 'main'}}
+  <div class="main-container">
+		<h1 class="title">首页</h1>
+		<div class="wrapper">
+			<a href='/project' class="fancy-button bg-gradient1"><span>project</span></a>
+			<a href='/demo' class="fancy-button bg-gradient3"><span>demo</span></a>
+		</div>
+	</div>
+{{/block}}

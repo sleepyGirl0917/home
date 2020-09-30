@@ -1,0 +1,13 @@
+{{extend './common/layout.art'}}
+
+{{block 'title'}}Project List Page{{/block}}
+
+{{block 'main'}}
+  <div class="main-container">
+		<h1 class="title">Project List Page</h1>
+		<div class="wrapper">
+			<a href='/project/zd' class="fancy-button bg-gradient1"><span>众独空间 BY VUE</span></a>
+			<a href='/project/xcf' class="fancy-button bg-gradient3"><span>下厨房 BY JQUERY</span></a>
+		</div>
+	</div>
+{{/block}}

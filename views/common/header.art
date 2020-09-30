@@ -1,0 +1,43 @@
+<!-- 头部框架开始 -->
+<header class="flex-align-center">
+  <div class="flex-align-center">
+    <div>Welcome To myPersonalPage</div>
+    <ul class="flex-align-center">
+      <li>
+        <a href="/">首页</a>
+      </li>
+      <li class="pr">
+        <a href="/project">project</a>
+        <!-- 隐藏列表 -->
+        <div class="sublist" data-list="sublist">
+          <ul> 
+            <li>
+              <a href="/project/zd" class="text-truncate">众独空间 BY VUE</a> 
+            </li>
+            <li>
+              <a href="/project/xcf" class="text-truncate">下厨房 BY JQUERY</a> 
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="pr">
+        <a href="/demo">demo</a>
+        <!-- 隐藏列表 -->
+        <div class="sublist" data-list="sublist">
+          <ul>
+            <li>
+              <a href="/demo/upload/single">单文件上传</a> 
+            </li>
+            <li>
+              <a href="/demo/upload/multiple">多文件上传</a> 
+            </li>
+            <li>
+              <a href='/demo/download'>下载文件</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>
+<!-- 头部框架结束 -->
