@@ -7,8 +7,8 @@ html{
 }
 
 body {
-  min-width:550px;
-  padding:6rem 0 0;
+  min-width:60rem;
+  padding:8rem 0 0;
   background:url(/img/2027535.jpg) no-repeat fixed center;
   background-size:cover;
   overflow: hidden;
@@ -33,7 +33,7 @@ a:hover {
 
 a{
   display: inline-block;
-  padding:0 0.5rem;
+  padding:0 0.2rem;
   border-radius: 5px;
 }
 
@@ -168,43 +168,42 @@ a.fancy-button:hover{
 header{
   position:fixed;
   top:0;
+  left: 0;
   width:100%;
-  height:6rem;
+  height:8rem;
+  padding:0 2rem;
   box-shadow: 0 0.2rem 0.2rem -0.2rem rgba(0,0,0,0.2);
   background: rgba(216, 189, 189,0.5);
   z-index:30;
-}
-
-header{
-  font-size:3rem;
-  font-family: serif;
+  font-size:3.5rem;
   line-height: 1.8;
+  font-family: serif;
   color:floralwhite;
-  padding:0 2rem;
   white-space: nowrap;
-  min-width: 70rem;
 }
 
 header>ul,header>h1{
-  height: 100%;
+  vertical-align: middle;
 }
 
 header>h1{
   display: inline-block;
-  vertical-align: middle;
-  width:60%;
+  min-width: 80rem;
 }
 
 header>ul{
   display: inline-flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 header>ul>li{
+  display: inline-block;
   padding:0 1rem;
+}
+
+header>ul>li>a{
+  display: inline-block;
+  padding:0 0.5rem;
 }
 
 /* 隐藏列表 */
@@ -239,7 +238,7 @@ header>ul>li{
 
 /* 入口页框架开始 */
 .main-container{
-  padding:0 5rem;
+  padding:0 2rem;
 }
 
 .main-container h1.title{
@@ -255,5 +254,9 @@ header>ul>li{
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.main-container .wrapper span{
+  white-space: nowrap;
 }
 /* 入口页框架结束 */

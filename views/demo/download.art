@@ -2,15 +2,16 @@
 
 {{block 'title'}}下载文件{{/block}}
 {{block 'link'}}
-  <link rel="stylesheet" href="/css/demo/download.css">
+<link rel="stylesheet" href="/css/demo/download.css">
 {{/block}}
 
 {{block 'main'}}
+<div class="main-container">
 	<!-- 文件下载列表开始 -->
 	<table>
 		<caption>文件信息</caption>
 		<tr>
-      <th>序号</th>
+			<th>序号</th>
 			<th>_id</th>
 			<th>fileName</th>
 			<th>originName</th>
@@ -20,18 +21,18 @@
 			<th>fileUploadTime</th>
 		</tr>
 		{{each result.records}}
-			<tr>
-        <th>{{$index+1}}</th>
-        <th>{{@$value._id}}</th>
-				<th>{{$value.fileName}}</th>
-				<th>{{$value.originName}}</th>
-				<th>{{$value.fileSize}}</th>
-        <th>{{$value.fileType}}</th>
-        <th>
-          <a href="{{$value.path}}" download="{{$value.fileName}}">点击下载</a>
-        </th>
-				<th>{{dateFormat($value.created, 'yyyy-mm-dd HH:MM:ss')}}</th>
-			</tr>
+		<tr>
+			<th>{{$index+1}}</th>
+			<th>{{@$value._id}}</th>
+			<th>{{$value.fileName}}</th>
+			<th>{{$value.originName}}</th>
+			<th>{{$value.fileSize}}</th>
+			<th>{{$value.fileType}}</th>
+			<th>
+				<a href="{{$value.path}}" download="{{$value.fileName}}">点击下载</a>
+			</th>
+			<th>{{dateFormat($value.created, 'yyyy-mm-dd HH:MM:ss')}}</th>
+		</tr>
 		{{/each}}
 	</table>
 	<!-- 文件下载列表结束 -->
@@ -39,35 +40,43 @@
 	<!-- 分页开始 -->
 	<div class="page">
 		{{if result.page > 1}}
-			<a href="/demo/download/?page={{result.page-1}}">上一页</a>
+		<a href="/demo/download/?page={{result.page-1}}">上一页</a>
 		{{/if}}
 		{{if result.display[0]!=1}}
-			<span>...</span>
+		<span>...</span>
 		{{/if}}
 		{{each result.display}}
-			<a href="/demo/download/?page={{$value}}" class="{{$value == result.page ? 'active' : ''}}">{{$value}}</a>
+		<a href="/demo/download/?page={{$value}}" class="{{$value == result.page ? 'active' : ''}}">{{$value}}</a>
 		{{/each}}
 		{{if result.display[result.display.length-1]!=result.pages}}
-			<span>...</span>
+		<span>...</span>
 		{{/if}}
 		{{if result.page < result.pages}}
-			<a href="/demo/download/?page={{result.page - 0 + 1}}">下一页</a>
+		<a href="/demo/download/?page={{result.page - 0 + 1}}">下一页</a>
 		{{/if}}
 		<div class="page-jump">
 			<span>到第</span><input type="text" id="pageNum"><span>页</span>
 			<input type="button" value="确定" onclick="jump()">
 		</div>
 	</div>
-	<script>
-		function jump(){
-			var pageNum=document.getElementById('pageNum').value;
-			if(pageNum == '') return;
-			if(/^[1-9]\d*$/.test(pageNum)){
-				window.location.href='/demo/download/?page='+pageNum;	
-			}else{
+
+	<script>		
+		var pageNum = document.getElementById('pageNum');
+		pageNum.onkeypress = function (event) {
+			if (event.keyCode === 13) {
+				window.location.href = '/demo/download/?page=' + pageNum.value;
+			}
+		}	
+		function jump() {
+			var pageNum = document.getElementById('pageNum');
+			if (pageNum == '') return;
+			if (/^[1-9]\d*$/.test(pageNum.value)) {
+				window.location.href = '/demo/download/?page=' + pageNum.value;
+			} else {
 				alert('请输入正确格式的页码')
 			}
 		}
 	</script>
 	<!-- 分页结束 -->
+</div>
 {{/block}}

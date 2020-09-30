@@ -23,11 +23,11 @@ module.exports = (req, res, next) => {
 		if (err) {
 			fs.mkdirSync(form.uploadDir);
 		}
-		_fileParse();
+		_fileParseMultiple();
 	});
 
 	// 文件解析与保存
-	function _fileParse() {
+	function _fileParseMultiple() {
 		const fileAttr = async (file) => {
 			// 格式化时间
 			var t = sd.format(new Date(), 'YYYYMMDDHHmmss');;

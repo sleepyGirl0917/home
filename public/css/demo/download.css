@@ -7,7 +7,6 @@ table, td, th {
 table {
   width: 90rem;
 	margin: 5rem auto 0;
-	font-size: 1.2rem;
 	background-color: transparent;
 }
 
@@ -17,7 +16,8 @@ table {
 }
 
 th,td{
-	padding:0.5rem 0.2rem;
+	padding:0.5rem 0.4rem;
+	font-size: 1.3rem;
 	font-weight: 600;
 	height: 3rem;
 	vertical-align: middle;
@@ -35,9 +35,8 @@ caption {
 	text-align: left;
 }
 
-a {
-	text-decoration: none;
-	color: #333;
+table a {
+	color: #421c17;
 }
 
 /* 分页开始 */

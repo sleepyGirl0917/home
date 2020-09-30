@@ -23,55 +23,64 @@ module.exports = (req, res) => {
 			fs.mkdirSync(form.uploadDir);
 		}
 		// 解析客户端传递过来的FormData对象
-		formParser(form, req, res);
+		_fileParseSingle();
 	});
+
+	// 文件解析与保存
+	function _fileParseSingle() {
+		form.parse(req, (err, fields, files) => {
+			if (err) throw err;
+			// 根据上传文件类型给客户端响应数据
+			// 如果没有上传文件
+			if (files.attrName == undefined) {
+				res.send({
+					message: '没有接收到文件',
+					fields,
+					files,
+					path: '/img/error.png'
+				});
+			} else{
+				// 格式化时间
+				var t = sd.format(new Date(), 'YYYYMMDDHHmmss');;
+				// 生成随机数
+				var ran = parseInt(Math.random() * 8999 + 10000);
+				// 拿到扩展名
+				var extname = path.extname(files.attrName.name);
+				// 旧的路径
+				var oldpath = path.normalize(files.attrName.path);
+				// 新的路径
+				var newfilename = t + ran + extname;
+				var newpath = path.join(form.uploadDir, newfilename);
+				// 文件改名
+				fs.renameSync(oldpath, newpath);
+				// 将上传文件信息存储到文件集合中
+				File.create({
+					fileName: newfilename,
+					originName: files.attrName.name,
+					fileSize: files.attrName.size,
+					fileType: files.attrName.type,
+					path: newpath.split('public')[1],
+				});
+				// 如果上传的文件是图片，在客户端响应预览
+				if (/image\/\w+/.test(files.attrName.type)) {
+					res.send({
+						message: "上传文件为图片",
+						fields,
+						files,
+						path: newpath.split('public')[1]
+					});
+				} else { 
+					res.send({
+						message: "上传其他类型文件",
+						fields,
+						files,
+						path: '/img/ok_1.jpg'
+					});
+				};
+			}
+		})
+	}
 }
 
-function formParser(form, req, res) {
-	form.parse(req, (err, fields, files) => {
-		// 格式化时间
-		var t = sd.format(new Date(), 'YYYYMMDDHHmmss');;
-		// 生成随机数
-		var ran = parseInt(Math.random() * 8999 + 10000);
-		// 拿到扩展名
-		var extname = path.extname(files.attrName.name);
-		// 旧的路径
-		var oldpath = path.normalize(files.attrName.path);
-		// 新的路径
-		var newfilename = t + ran + extname;
-		var newpath = path.join(form.uploadDir, newfilename);
-		// 文件改名
-		fs.renameSync(oldpath, newpath);
-		// 将上传文件信息存储到文件集合中
-		File.create({
-			fileName: newfilename,
-			originName: files.attrName.name,
-			fileSize: files.attrName.size,
-			fileType: files.attrName.type,
-			path: newpath.split('public')[1],
-		});
-		// 根据上传文件类型给客户端响应数据
-		if (files.attrName == undefined) {
-			res.send({
-				message: '没有接收到文件',
-				fields,
-				files,
-				path: '/img/error.png'
-			});
-		} else if (/image\/\w+/.test(files.attrName.type)) {
-			res.send({
-				message: "上传文件为图片",
-				fields,
-				files,
-				path: newpath.split('public')[1]
-			});
-		} else { // 上传文件为其他类型
-			res.send({
-				message: "上传其他类型文件",
-				fields,
-				files,
-				path: '/img/ok.jpg'
-			});
-		};
-	})
-}
+
+
