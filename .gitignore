@@ -105,3 +105,6 @@ dist
 
 # 上传的文件
 public/upload/
+
+# vscode配置
+.vscode/
