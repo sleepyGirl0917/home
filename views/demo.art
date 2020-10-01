@@ -7,7 +7,7 @@
 		<h1 class="title">Demo List Page</h1>
 		<div class="wrapper">
 			<a href='/demo/upload/single' class="fancy-button bg-gradient1"><span>单文件上传</span></a>
-			<a href='/demo/upload/multiple' class="fancy-button bg-gradient1"><span>多文件上传</span></a>
+			<a href='/demo/upload/multiple' class="fancy-button bg-gradient2"><span>多文件上传</span></a>
 			<a href='/demo/download' class="fancy-button bg-gradient3"><span>下载文件</span></a>
 		</div>
 	</div>

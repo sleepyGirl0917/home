@@ -74,20 +74,116 @@ img {
   vertical-align: middle;
 }
 
-/* 弹性布局垂直居中 */
-.flex-align-center {
-  display: flex;
+/* 头部框架开始 */
+header{
+  position:fixed;
+  top:0;
+  left: 0;
+  width:100%;
+  height:8rem;
+  padding:0 2rem;
+  box-shadow: 0 0.2rem 0.2rem -0.2rem rgba(0,0,0,0.2);
+  background: rgba(216, 189, 189,0.5);
+  z-index:30;
+  font-size:3.5rem;
+  line-height: 1.8;
+  font-family: serif;
+  color:floralwhite;
+  white-space: nowrap;
+}
+
+header{
+  display:flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+header>h1{
+  display: inline-block;
+  min-width: 50rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+header>ul{
+  display: inline-flex;
+  font-size: 2.5rem;
+  margin: 0 2rem;
+}
+
+header>ul>li{
+  display: inline-block;
+  padding:0 1rem;
+}
+
+header>ul>li>a{
+  display: inline-block;
+  padding:0 0.5rem;
+  font-weight: 700;
+}
+
+/* 隐藏列表 */
+.sublist{
+  display: none;
+  position: absolute;
+  top:4rem;
+  left:50%;
+  transform: translateX(-50%);
+  z-index:40;
+}
+
+.sublist ul{
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-/* 弹性布局水平垂直居中 */
-.flex-center {
+.sublist ul,.sublist ul li{
+  padding:0;  
+}
+
+.sublist ul li a{
+  font-size: 2rem;
+  font-weight: 500;
+  vertical-align: middle;
+  color:floralwhite;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 头部框架结束 */
+
+/* 入口页框架开始 */
+.main-container{
+  padding:0 2rem;
+}
+
+.main-container h1.title{
+  font-size:3rem;
+  font-weight: 700;
+  color:floralwhite;
+  text-align: center;
+  margin:5rem 0;
+}
+
+.main-container .wrapper{
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content: space-around;
   align-items: center;
 }
+
+.main-container .wrapper span{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 入口页框架结束 */
 
 /* 渐变按钮开始*/
 /* button按钮 button.gradientButton */
@@ -116,19 +212,22 @@ img {
 a.fancy-button:hover{
   background-color: transparent;
 }
+
 .fancy-button {
 	display:inline-block;
 	margin:1rem;
 	font-family:'Montserrat',Helvetica,Arial,sans-serif;
   font-size:2rem;
   line-height: 2;
-  vertical-align: middle;
 	letter-spacing:0.03em;
 	color:#ffffff;
 	position:relative;
 }
+
 .fancy-button span {
-	display:inline-block;
+  display:inline-block;
+  vertical-align: middle;
+  width:20rem;
 	padding:1rem 3rem;
 	border-radius:2.5rem;
 	position:relative;
@@ -138,125 +237,34 @@ a.fancy-button:hover{
 	-webkit-transition:all 0.3s ease-out;
 	transition:all 0.3s ease-out;
 }
+
 .fancy-button:hover {
 	color:#a74343;
 }
+
 .fancy-button:hover span {
 	-webkit-filter:brightness(1.05) contrast(1.05);
 	filter:brightness(1.05) contrast(1.05);
 	-webkit-transform:scale(0.95);
 	transform:scale(0.95);
 }
+
 .bg-gradient1 span,.bg-gradient1:before {
 	background:#52A0FD;
 	background:-webkit-linear-gradient(left,#52A0FD 0%,#00e2fa 80%,#00e2fa 100%);
 	background:linear-gradient(to right,#52A0FD 0%,#00e2fa 80%,#00e2fa 100%);
 }
+
 .bg-gradient2 span,.bg-gradient2:before {
 	background:#44ea76;
 	background:-webkit-linear-gradient(left,#44ea76 0%,#39fad7 80%,#39fad7 100%);
 	background:linear-gradient(to right,#44ea76 0%,#39fad7 80%,#39fad7 100%);
 }
+
 .bg-gradient3 span,.bg-gradient3:before {
 	background:#fa6c9f;
 	background:-webkit-linear-gradient(left,#fa6c9f 0%,#ffe140 80%,#ffe140 100%);
 	background:linear-gradient(to right,#fa6c9f 0%,#ffe140 80%,#ffe140 100%);
 }
+
 /* 渐变按钮结束 */
-
-/* 头部框架开始 */
-header{
-  position:fixed;
-  top:0;
-  left: 0;
-  width:100%;
-  height:8rem;
-  padding:0 2rem;
-  box-shadow: 0 0.2rem 0.2rem -0.2rem rgba(0,0,0,0.2);
-  background: rgba(216, 189, 189,0.5);
-  z-index:30;
-  font-size:3.5rem;
-  line-height: 1.8;
-  font-family: serif;
-  color:floralwhite;
-  white-space: nowrap;
-}
-
-header>ul,header>h1{
-  vertical-align: middle;
-}
-
-header>h1{
-  display: inline-block;
-  min-width: 80rem;
-}
-
-header>ul{
-  display: inline-flex;
-  font-size: 2.5rem;
-}
-
-header>ul>li{
-  display: inline-block;
-  padding:0 1rem;
-}
-
-header>ul>li>a{
-  display: inline-block;
-  padding:0 0.5rem;
-}
-
-/* 隐藏列表 */
-.sublist{
-  display: none;
-  position: absolute;
-  top:3.5rem;
-  left:50%;
-  transform: translateX(-50%);
-  z-index:40;
-}
-
-.sublist ul{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sublist ul,.sublist ul li{
-  padding:0;  
-}
-
-.sublist ul li a{
-  font-size: 1.5rem;
-  font-weight: 500;
-  vertical-align: middle;
-  color:floralwhite;
-  white-space: nowrap;
-}
-
-/* 头部框架结束 */
-
-/* 入口页框架开始 */
-.main-container{
-  padding:0 2rem;
-}
-
-.main-container h1.title{
-  font-size:3rem;
-  font-weight: 700;
-  color:floralwhite;
-  text-align: center;
-  margin:5rem 0;
-}
-
-.main-container .wrapper{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.main-container .wrapper span{
-  white-space: nowrap;
-}
-/* 入口页框架结束 */
