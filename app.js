@@ -82,7 +82,3 @@ function ensureSecure(req, res, next) {
   // res.redirect('https://' + req.host + req.url); // express 3.x
   res.redirect('https://' + req.hostname + req.url); // express 4.x
 }
-
-// const proxyServer=require('./proxy');
-// const proxy = require("http-proxy-middleware");
-// app.use(proxy('/index',{target:'http://www.xujing917.xyz:3002',changeOrigin:true})) 
